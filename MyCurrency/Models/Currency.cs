@@ -3,6 +3,6 @@
     public class Currency
     {
         public long Id { get; set; }
-        public string CurrencyName;
+        public string CurrencyName { get; set; }
     }
 }
