@@ -1,0 +1,14 @@
+﻿POST https://localhost:5001/api/accounts
+Content-Type: application/json
+
+{
+  "AccountOwnerName": "John Doe"
+}
+
+###
+GET https://localhost:5001/api/accounts
+Accept: application/json
+
+###
+GET https://localhost:5001/api/accounts/1
+Accept: application/json
