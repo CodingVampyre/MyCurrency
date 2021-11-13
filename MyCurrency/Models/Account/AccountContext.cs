@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace MyCurrency.Models
+namespace MyCurrency.Models.Account
 {
     public class AccountContext : DbContext
     {

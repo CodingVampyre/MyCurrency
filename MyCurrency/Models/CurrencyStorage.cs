@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using MyCurrency.Models.Account;
 
 namespace MyCurrency.Models
 {
@@ -7,7 +8,7 @@ namespace MyCurrency.Models
         public long Id { get; set; }
         [Required]
         public long AccountId { get; set; }
-        public Account Account { get; set; }
+        public Account.Account Account { get; set; }
         [Required]
         public long CurrencyId { get; set; }
         public Currency Currency { get; set; }

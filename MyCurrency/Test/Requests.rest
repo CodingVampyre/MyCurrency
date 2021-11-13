@@ -2,13 +2,13 @@
 Content-Type: application/json
 
 {
-  "AccountOwnerName": "John Doe"
+  "Name": "John Doe"
 }
 
 ###
-GET https://localhost:5001/api/accounts
+GET https://localhost:5001/accounts
 Accept: application/json
 
 ###
-GET https://localhost:5001/api/accounts/1
+GET https://localhost:5001/accounts/1
 Accept: application/json

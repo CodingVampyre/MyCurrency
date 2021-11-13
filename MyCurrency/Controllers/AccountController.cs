@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MyCurrency.Models;
+using MyCurrency.Controllers.Dtos;
+using MyCurrency.Models.Account;
+using Newtonsoft.Json.Serialization;
 
 namespace MyCurrency.Controllers
 {
@@ -75,12 +78,22 @@ namespace MyCurrency.Controllers
         // POST: api/Account
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Account>> PostAccount(Account account)
+        public async Task<ActionResult<AccountCreateResponse>> PostAccount
+        (
+            [FromBody] AccountCreateDto newAccount
+        )
         {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            Account account = new Account()
+            {
+                AccountOwnerName = newAccount.Name,
+                Guid = Guid.NewGuid(),
+            };
             _context.Accounts.Add(account);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetAccount), new { id = account.Id }, account);
+            return Created(nameof(GetAccount), new AccountCreateResponse { GeneratedGuid = account.Guid });
         }
 
         // DELETE: api/Account/5

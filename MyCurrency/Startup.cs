@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using MyCurrency.Models;
+using MyCurrency.Models.Account;
 
 namespace MyCurrency
 {
